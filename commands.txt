@@ -1,0 +1,68 @@
+I  have set up github by connecting a git repository to local called task1
+
+1.Used mkdir to create a directory called task1 and cd to change directory
+->mkdir task1
+->cd task1
+2.Created a git repository to initialise a git repository
+->git init
+3.to find the created repository used ls -a
+4.Created a README file using
+->touch README.md
+5.Used git status where README appeared as an untracked file.
+->git status
+6.Used the add command to add the new file to the staging area. Then I have seen those changes in the staged area
+-> git add README.md
+7. Now use the commit command to commit the contents of the staging area.
+->git commit -m "Added README.md file"
+
+8. Create a src directory and add a couple of files to it.
+-> mkdir src
+-> touch file1 file2
+
+9. Use the add command, but name the directory, not the individual files. Use the status
+command. See how both files have been staged. Commit them.
+->git add src
+->git status 
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   file1
+	new file:   file2
+
+
+10. Make a change to one of the files. Use the diff command to view the details of the change.
+-> cat > file1
+-> git diff
+diff --git a/src/file1 b/src/file1
+--- a/src/file1
++++ b/src/file1
++This is file1
+
+11. Next, add the changed file, and notice how it moves to the staging area in the status
+output. Also observe that the diff command you did before using add now gives no output.
+Why not? What do you have to do to see a diff of the things in the staging area? (Hint:
+review the slides if you can’t remember.)
+-> git add .
+-> git diff
+12. Now – without committing – make another change to the same file you changed in step 10.
+Look at the status output, and the diff output. Notice how you can have both staged and
+unstaged changes, even when you’re talking about a single file. Observe the difference when
+you use the add command to stage the latest round of changes. Finally, commit them. You
+should now have started to get a feel for the staging area.
+->git status
+->Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   file1
+	new file:   file2
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   file1
+
+13. Use the log command in order to see all of the commits you made so far.
+-> git log
+14. Use the show command to look at an individual commit. How many characters of the
+commit identifier can you get away with typing at a minimum?
+-> git show first_seven_chars_of_commmit_hash
+15. Make a couple more commits, at least one of which should add an extra file
+
